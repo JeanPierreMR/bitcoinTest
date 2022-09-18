@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_KERNEL_CHAINSTATEMANAGER_OPTS_H
-#define BITCOIN_KERNEL_CHAINSTATEMANAGER_OPTS_H
+#ifndef CSCOIN_KERNEL_CHAINSTATEMANAGER_OPTS_H
+#define CSCOIN_KERNEL_CHAINSTATEMANAGER_OPTS_H
 
 #include <util/time.h>
 
@@ -26,4 +26,4 @@ struct ChainstateManagerOpts {
 
 } // namespace kernel
 
-#endif // BITCOIN_KERNEL_CHAINSTATEMANAGER_OPTS_H
+#endif // CSCOIN_KERNEL_CHAINSTATEMANAGER_OPTS_H

@@ -3,10 +3,10 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 //! @file
-//! @brief Common init functions shared by bitcoin-node, bitcoin-wallet, etc.
+//! @brief Common init functions shared by cscoin-node, cscoin-wallet, etc.
 
-#ifndef BITCOIN_INIT_COMMON_H
-#define BITCOIN_INIT_COMMON_H
+#ifndef CSCOIN_INIT_COMMON_H
+#define CSCOIN_INIT_COMMON_H
 
 class ArgsManager;
 
@@ -19,4 +19,4 @@ bool StartLogging(const ArgsManager& args);
 void LogPackageVersion();
 } // namespace init
 
-#endif // BITCOIN_INIT_COMMON_H
+#endif // CSCOIN_INIT_COMMON_H

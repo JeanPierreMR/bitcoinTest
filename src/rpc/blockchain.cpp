@@ -620,7 +620,7 @@ const RPCResult getblock_vin{
                     {RPCResult::Type::STR, "asm", "Disassembly of the public key script"},
                     {RPCResult::Type::STR, "desc", "Inferred descriptor for the output"},
                     {RPCResult::Type::STR_HEX, "hex", "The raw public key script bytes, hex-encoded"},
-                    {RPCResult::Type::STR, "address", /*optional=*/true, "The Bitcoin address (only if a well-defined address exists)"},
+                    {RPCResult::Type::STR, "address", /*optional=*/true, "The CScoin address (only if a well-defined address exists)"},
                     {RPCResult::Type::STR, "type", "The type (one of: " + GetAllOutputTypes() + ")"},
                 }},
             }},
@@ -1020,7 +1020,7 @@ static RPCHelpMan gettxout()
                     {RPCResult::Type::STR, "desc", "Inferred descriptor for the output"},
                     {RPCResult::Type::STR_HEX, "hex", "The raw public key script bytes, hex-encoded"},
                     {RPCResult::Type::STR, "type", "The type, eg pubkeyhash"},
-                    {RPCResult::Type::STR, "address", /*optional=*/true, "The Bitcoin address (only if a well-defined address exists)"},
+                    {RPCResult::Type::STR, "address", /*optional=*/true, "The CScoin address (only if a well-defined address exists)"},
                 }},
                 {RPCResult::Type::BOOL, "coinbase", "Coinbase or not"},
             }},
@@ -2348,7 +2348,7 @@ UniValue CreateUTXOSnapshot(
         // use below this block.
         //
         // See discussion here:
-        //   https://github.com/bitcoin/bitcoin/pull/15606#discussion_r274479369
+        //   https://github.com/cscoin/cscoin/pull/15606#discussion_r274479369
         //
         LOCK(::cs_main);
 

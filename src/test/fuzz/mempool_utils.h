@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TEST_FUZZ_MEMPOOL_UTILS_H
-#define BITCOIN_TEST_FUZZ_MEMPOOL_UTILS_H
+#ifndef CSCOIN_TEST_FUZZ_MEMPOOL_UTILS_H
+#define CSCOIN_TEST_FUZZ_MEMPOOL_UTILS_H
 
 #include <validation.h>
 
@@ -16,4 +16,4 @@ public:
     }
 };
 
-#endif // BITCOIN_TEST_FUZZ_MEMPOOL_UTILS_H
+#endif // CSCOIN_TEST_FUZZ_MEMPOOL_UTILS_H

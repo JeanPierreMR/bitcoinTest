@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_SYNC_H
-#define BITCOIN_SYNC_H
+#ifndef CSCOIN_SYNC_H
+#define CSCOIN_SYNC_H
 
 #ifdef DEBUG_LOCKCONTENTION
 #include <logging.h>
@@ -136,7 +136,7 @@ using Mutex = AnnotatedMixin<std::mutex>;
  * eventually move all the mutexes into classes so they are not globally
  * visible.
  *
- * See: https://github.com/bitcoin/bitcoin/pull/20272#issuecomment-720755781
+ * See: https://github.com/cscoin/cscoin/pull/20272#issuecomment-720755781
  */
 class GlobalMutex : public Mutex { };
 
@@ -400,4 +400,4 @@ public:
     }
 };
 
-#endif // BITCOIN_SYNC_H
+#endif // CSCOIN_SYNC_H

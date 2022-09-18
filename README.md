@@ -1,14 +1,14 @@
-## Bitcoin Test
+## CScoin Test
 
 
-This is a fork of the bitcoin core for testing purposes.
+This is a fork of the cscoin core for testing purposes.
 
-You can check the original project at https://github.com/bitcoin/bitcoin
+You can check the original project at https://github.com/cscoin/cscoin
 
 License
 -------
 
-Bitcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+CScoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Changes made
@@ -25,16 +25,16 @@ Difficulty will be ajusted each 5 blocks
 
 # Spanish:
 
-## Bitcoin Test
+## CScoin Test
 
 Es un fork hecho con el proposito de pruebas.
 
-Puedes ver el proyecto original en: https://github.com/bitcoin/bitcoin
+Puedes ver el proyecto original en: https://github.com/cscoin/cscoin
 
 License
 -------
 
-Bitcoin Core se publicó bajo los términos de la licencia del MIT. Consulte https://opensource.org/licenses para más..
+CScoin Core se publicó bajo los términos de la licencia del MIT. Consulte https://opensource.org/licenses para más..
 
 Cambios realizados
 ------------------

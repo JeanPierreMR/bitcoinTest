@@ -1,0 +1,93 @@
+#!/sbin/openrc-run
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/cscoin/.cscoin" ]; then
+	CSCOIND_DEFAULT_DATADIR="/var/lib/cscoin/.cscoin"
+else
+	CSCOIND_DEFAULT_DATADIR="/var/lib/cscoind"
+fi
+
+CSCOIND_CONFIGFILE=${CSCOIND_CONFIGFILE:-/etc/cscoin/cscoin.conf}
+CSCOIND_PIDDIR=${CSCOIND_PIDDIR:-/var/run/cscoind}
+CSCOIND_PIDFILE=${CSCOIND_PIDFILE:-${CSCOIND_PIDDIR}/cscoind.pid}
+CSCOIND_DATADIR=${CSCOIND_DATADIR:-${CSCOIND_DEFAULT_DATADIR}}
+CSCOIND_USER=${CSCOIND_USER:-${CSCOIN_USER:-cscoin}}
+CSCOIND_GROUP=${CSCOIND_GROUP:-cscoin}
+CSCOIND_BIN=${CSCOIND_BIN:-/usr/bin/cscoind}
+CSCOIND_NICE=${CSCOIND_NICE:-${NICELEVEL:-0}}
+CSCOIND_OPTS="${CSCOIND_OPTS:-${CSCOIN_OPTS}}"
+
+name="CScoin Core Daemon"
+description="CScoin cryptocurrency P2P network daemon"
+
+command="/usr/bin/cscoind"
+command_args="-pid=\"${CSCOIND_PIDFILE}\" \
+		-conf=\"${CSCOIND_CONFIGFILE}\" \
+		-datadir=\"${CSCOIND_DATADIR}\" \
+		-daemon \
+		${CSCOIND_OPTS}"
+
+required_files="${CSCOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${CSCOIND_USER} \
+			-N ${CSCOIND_NICE} -w 2000"
+pidfile="${CSCOIND_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${CSCOIND_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${CSCOIND_USER}:${CSCOIND_GROUP}" \
+	"${CSCOIND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${CSCOIND_USER}:${CSCOIND_GROUP}" \
+	"${CSCOIND_PIDDIR}"
+
+	checkpath -f \
+	-o "${CSCOIND_USER}:${CSCOIND_GROUP}" \
+	-m 0660 \
+	"${CSCOIND_CONFIGFILE}"
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if grep -qs '^rpcuser=' "${CSCOIND_CONFIGFILE}" && \
+		! grep -qs '^rpcpassword=' "${CSCOIND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run cscoind."
+		eerror "The setting must appear in ${CSCOIND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"CScoin Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

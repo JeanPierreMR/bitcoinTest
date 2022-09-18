@@ -1,0 +1,33 @@
+# /etc/conf.d/cscoind: config file for /etc/init.d/cscoind
+
+# Config file location
+#CSCOIND_CONFIGFILE="/etc/cscoin/cscoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $CSCOIND_USER)
+#CSCOIND_PIDDIR="/var/run/cscoind"
+
+# What filename to give the pidfile
+#CSCOIND_PIDFILE="${CSCOIND_PIDDIR}/cscoind.pid"
+
+# Where to write cscoind data (be mindful that the blockchain is large)
+#CSCOIND_DATADIR="/var/lib/cscoind"
+
+# User and group to own cscoind process
+#CSCOIND_USER="cscoin"
+#CSCOIND_GROUP="cscoin"
+
+# Path to cscoind executable
+#CSCOIND_BIN="/usr/bin/cscoind"
+
+# Nice value to run cscoind under
+#CSCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#CSCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for cscoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+CSCOIND_SIGTERM_TIMEOUT=600

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_KERNEL_CONTEXT_H
-#define BITCOIN_KERNEL_CONTEXT_H
+#ifndef CSCOIN_KERNEL_CONTEXT_H
+#define CSCOIN_KERNEL_CONTEXT_H
 
 #include <memory>
 
@@ -11,7 +11,7 @@ class ECCVerifyHandle;
 
 namespace kernel {
 //! Context struct holding the kernel library's logically global state, and
-//! passed to external libbitcoin_kernel functions which need access to this
+//! passed to external libcscoin_kernel functions which need access to this
 //! state. The kernel library API is a work in progress, so state organization
 //! and member list will evolve over time.
 //!
@@ -28,4 +28,4 @@ struct Context {
 };
 } // namespace kernel
 
-#endif // BITCOIN_KERNEL_CONTEXT_H
+#endif // CSCOIN_KERNEL_CONTEXT_H

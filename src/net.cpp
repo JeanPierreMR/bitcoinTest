@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/cscoin-config.h>
 #endif
 
 #include <net.h>
@@ -1655,7 +1655,7 @@ void CConnman::ThreadOpenConnections(const std::vector<std::string> connect)
                 // peers.dat will contain only peers of unreachable networks and
                 // manual intervention will be needed (either delete peers.dat after
                 // configuration change or manually add some reachable peer using addnode),
-                // see <https://github.com/bitcoin/bitcoin/issues/26035> for details.
+                // see <https://github.com/cscoin/cscoin/issues/26035> for details.
                 seed_addrs.erase(std::remove_if(seed_addrs.begin(), seed_addrs.end(),
                                                [](const CAddress& addr) { return !IsReachable(addr); }),
                                 seed_addrs.end());

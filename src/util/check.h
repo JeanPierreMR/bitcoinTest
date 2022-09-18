@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UTIL_CHECK_H
-#define BITCOIN_UTIL_CHECK_H
+#ifndef CSCOIN_UTIL_CHECK_H
+#define CSCOIN_UTIL_CHECK_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/cscoin-config.h>
 #endif
 
 #include <tinyformat.h>
@@ -94,4 +94,4 @@ T&& inline_assertion_check(T&& val, [[maybe_unused]] const char* file, [[maybe_u
         format_internal_error("Unreachable code reached (non-fatal)", \
                               __FILE__, __LINE__, __func__, PACKAGE_BUGREPORT))
 
-#endif // BITCOIN_UTIL_CHECK_H
+#endif // CSCOIN_UTIL_CHECK_H
