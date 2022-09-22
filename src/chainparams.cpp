@@ -110,10 +110,10 @@ public:
         m_assumed_blockchain_size = 496;
         m_assumed_chain_state_size = 6;
 
-        genesis = CreateGenesisBlock(1663810729, 0x00000003, 545259519, 1, 100 * COIN);
+        genesis = CreateGenesisBlock(1663810729, 0x00000000, 545259519, 1, 100 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x1f7cdf820bc38bdc5eb85010ea8e290d019dcdbac90a00288ca8fecc0e879546"));
-        assert(genesis.hashMerkleRoot == uint256S("0xded792912388821643cc714bf335e8b17f8891b539d448ae834dc7ec4223871b"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00d5af0e9a6082c366c41e5f258deee3377659d6afaf92a43d132d57a721ee68"));
+        assert(genesis.hashMerkleRoot == uint256S("0x5c7f18bd2088bb8a5c43ef30be8ac3cbab47c6c64665ebb49622e3dcad1c9a20"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
