@@ -93,8 +93,8 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1628640000; // August 11th, 2021
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].min_activation_height = 709632; // Approximately November 12th, 2021
 
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000003404ba0801921119f903495e");
-        consensus.defaultAssumeValid = uint256S("0x00000000000000000009c97098b5295f7e5f183ac811fb5d1534040adb93cabd"); // 751565
+        consensus.nMinimumChainWork = consensus.powLimit; /*uint256S("0x00000000000000000000000000000000000000003404ba0801921119f903495e");*/
+        consensus.defaultAssumeValid =uint256() ;/*uint256S("0x00000000000000000009c97098b5295f7e5f183ac811fb5d1534040adb93cabd"); // 751565 */
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -169,9 +169,9 @@ public:
 
         chainTxData = ChainTxData{
             // Data from RPC: getchaintxstats 4096 00000000000000000009c97098b5295f7e5f183ac811fb5d1534040adb93cabd
-            .nTime    = 1661697692,
-            .nTxCount = 760120522,
-            .dTxRate  = 2.925802860942233,
+            /* .nTime */    0,//1532884444,
+            /*.nTxCount */  0,//331282217,
+            /* .dTxRate */  0,//2.4
         };
     }
 };
@@ -213,8 +213,8 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1628640000; // August 11th, 2021
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].min_activation_height = 0; // No activation delay
 
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000076f6e7cbd0beade5d20");
-        consensus.defaultAssumeValid = uint256S("0x0000000000000004877fa2d36316398528de4f347df2f8a96f76613a298ce060"); // 2344474
+        consensus.nMinimumChainWork = consensus.powLimit;/*uint256S("0x00000000000000000000000000000000000000000000076f6e7cbd0beade5d20"); */
+        consensus.defaultAssumeValid = uint256(); /*uint256S("0x0000000000000004877fa2d36316398528de4f347df2f8a96f76613a298ce060"); // 2344474 */
 
         pchMessageStart[0] = 0x0b;
         pchMessageStart[1] = 0x11;
@@ -265,9 +265,9 @@ public:
 
         chainTxData = ChainTxData{
             // Data from RPC: getchaintxstats 4096 0000000000000004877fa2d36316398528de4f347df2f8a96f76613a298ce060
-            .nTime    = 1661705221,
-            .nTxCount = 63531852,
-            .dTxRate  = 0.1079119341520164,
+            /* .nTime    = 1661705221, */ 0,
+            /* .nTxCount = 63531852, */ 0,
+            /* .dTxRate  = 0.1079119341520164, */ 0,
         };
     }
 };
